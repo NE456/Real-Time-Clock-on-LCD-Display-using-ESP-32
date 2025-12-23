@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "author": "Nitin Eswar 24BEC0119",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard", "id": "bb1", "top": -22.2, "left": -179.6, "attrs": {} },
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 211.2, "left": -110.36, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 236.8,
+      "left": 63.2,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-ds1307",
+      "id": "rtc1",
+      "top": -168.6,
+      "left": -86.3,
+      "rotate": 270,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:3V3", "bb1:bp.1", "red", [ "h-57.45", "v-76.8" ] ],
+    [ "esp:GND.2", "bb1:bn.1", "black", [ "v-38.4", "h-124.8" ] ],
+    [ "lcd1:GND", "bb1:bn.16", "black", [ "h0" ] ],
+    [ "lcd1:VCC", "bb1:bp.16", "red", [ "h-38.4", "v-115.1" ] ],
+    [ "rtc1:GND", "bb1:bn.7", "black", [ "v0" ] ],
+    [ "rtc1:5V", "bb1:bp.8", "red", [ "v0" ] ],
+    [ "rtc1:SDA", "bb1:15b.f", "gold", [ "v0" ] ],
+    [ "esp:21", "bb1:15b.j", "gold", [ "h9.6", "v-134.4", "h-19.2" ] ],
+    [ "lcd1:SDA", "bb1:15b.i", "gold", [ "h-48", "v-143.8", "h-28.8", "v0" ] ],
+    [ "rtc1:SCL", "bb1:20b.f", "blue", [ "v163.9", "h64.1" ] ],
+    [ "esp:22", "bb1:20b.j", "blue", [ "h67.2", "v-115.2", "h-28.8" ] ],
+    [ "lcd1:SCL", "bb1:20b.i", "blue", [ "h-28.8", "v-143.7" ] ]
+  ],
+  "dependencies": {}
+}
